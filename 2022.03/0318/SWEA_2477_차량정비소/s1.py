@@ -24,7 +24,6 @@ for tc in range(1, T + 1):
                     end += 1
                     b_list_idx[k] = 0
 
-
         # 기다리고 있는 고객 처리
         cnt = 0
         for user in waiting_user:

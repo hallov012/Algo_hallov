@@ -3,17 +3,11 @@ sys.stdin = open('input.txt')
 
 def fine_sit(g_idx, p_num):
     while 1:
-        cnt = 0
-        for a in range(len(case)):
-            if case[a][0] == p_num:
-                cnt += 1
-        if cnt == len(case):
-            break
         p, visited = case.pop(0)
         now_visited = visited[:]
         if p == p_num:
             case.append([p, now_visited])
-            continue
+            break
         i, j = 0, 0     # i: 왼쪽으로 이동, j: 오른쪽으로 이동
         if not now_visited[g_idx]:
             now_visited[g_idx] = 1
