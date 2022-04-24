@@ -23,10 +23,10 @@ V, E = map(int, input().split())
 inf = 987654321
 g = [[inf] * (V + 1) for _ in range(V + 1)]
 key = [inf] * (V + 1)
-key[0] = 0
+key[2] = 0
 visited = [0] * (V + 1)
 for i in range(E):
-    s, e , w = map(int, input().split())
+    s, e, w = map(int, input().split())
     g[s][e] = w
     g[e][s] = w
 print(prim())
