@@ -14,8 +14,6 @@ for i in range(1, n+1):
     else:
         for j in range(m):
             arr[j] += 1
-    if i == n:
-        if arr[]
 
 ans = [n, 0]
 for num in arr:
