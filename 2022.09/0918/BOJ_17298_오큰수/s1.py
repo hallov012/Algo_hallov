@@ -3,7 +3,7 @@ sys.stdin = open('input.txt')
 
 n = int(input())
 nums = list(map(int, input().split()))
-ans = [0] * n
+ans = [-1] * n
 stack = []
 for i in range(n):
     if not stack:
@@ -18,12 +18,4 @@ for i in range(n):
         else:
             stack.append(i)
 
-for i in range(n):
-    # 맨 마지막 수는 항상 오큰수가 없음
-    if i == n-1:
-        print(-1)
-    else:
-        if not ans[i]:
-            print(-1, end=" ")
-        else:
-            print(ans[i], end=" ")
+print(*ans)
