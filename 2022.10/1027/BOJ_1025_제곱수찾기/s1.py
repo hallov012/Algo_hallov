@@ -1,27 +1,25 @@
 import sys
+sys.stdin = open('input.txt')
+
 input = sys.stdin.readline
 
-N, M = map(int,input().split())
-board = [list(input().strip()) for _ in range(N)]
-answer = -1
+n, m = map(int,  input().split())
+arr = [list(input().strip()) for _ in range(n)]
+ans = -1
 
-def sqr(S):
-    S = int(S)
-    return int(S ** 0.5) ** 2 == S
-
-
-for i in range(N): #시작 x좌표
-    for j in range(M): # 시작 y좌표
-        for row_d in range(-N,N): # 행의 등차
-            for col_d in range(-M,M): # 열의 등차
-                S = ""
-                x,y = i,j
-                if row_d == 0 and col_d == 0:
+for i in range(n):
+    for j in range(m):
+        for xd in range(-n, n):
+            for yd in range(-m ,m):
+                temp = ""
+                x, y = i, j
+                if not xd and not yd:
                     continue
-                while 0 <= x < N and 0 <= y < M:
-                    S += board[x][y]
-                    if sqr(S):
-                        answer = max(answer,int(S))
-                    x += row_d
-                    y += col_d
-print(answer)
+                while 0 <= x < n and 0 <= y < m:
+                    temp += arr[x][y]
+                    if int(temp) ** 0.5 == int(int(temp) ** 0.5) :
+                        ans = max(ans, int(temp))
+                    x += xd
+                    y += yd
+print(ans)
+

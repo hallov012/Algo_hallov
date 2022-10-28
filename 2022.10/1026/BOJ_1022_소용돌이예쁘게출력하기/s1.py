@@ -31,4 +31,3 @@ for i in range(r2-r1+1):
     for j in range(c2-c1+1):
         print(str(arr[i][j]).rjust(max_len), end=" ")
     print()
-
