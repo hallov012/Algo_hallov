@@ -1,3 +1,4 @@
+# 2차원누적합 => 공부 필요
 import sys
 sys.stdin = open('input.txt')
 
@@ -14,24 +15,22 @@ if m % 2:
     even_line += "W"
 
 for i in range(n):
-    # WBWBWB 순서
     if i % 2:
         for j in range(m):
+            bw_arr[i][j] = bw_arr[i-1][j] + bw_arr[i][j-1] - bw_arr[i-1][j-1]
             if arr[i][j] != even_line[j]:
-                bw_arr[i+1][j+1] += 1
-            bw_arr[i+1][j+1] += bw_arr[i+1][j]
+                bw_arr[i][j] += 1
     else:
         for j in range(m):
+            bw_arr[i][j] = bw_arr[i-1][j] + bw_arr[i][j-1] - bw_arr[i-1][j-1]
             if arr[i][j] != odd_line[j]:
-                bw_arr[i+1][j+1] += 1
-            bw_arr[i+1][j+1] += bw_arr[i+1][j]
-    bw_arr[i+1][j+1] += bw_arr[i][j+1]
-
-print(bw_arr)
+                bw_arr[i][j] += 1
 
 ans = sys.maxsize
 for i in range(n-k+1):
     for j in range(m-k+1):
-        temp = bw_arr[i+k][j+k] - bw_arr[i][j]
+        temp = bw_arr[i+k-1][j+k-1] + bw_arr[i-1][j-1] - bw_arr[i+k-1][j-1] - bw_arr[i-1][j+k-1]
         ans = min(ans, temp, k*k-temp)
 print(ans)
+
+
