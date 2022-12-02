@@ -10,7 +10,7 @@ def solution(order):
             answer += 1
             sub.pop()
         else:
-            break2
+            break
     return answer
 
 print(solution([4, 3, 1, 2, 5]))
