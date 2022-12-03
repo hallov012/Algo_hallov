@@ -9,7 +9,9 @@ def solution(number):
             temp = number[left] + number[right]
             if temp == target:
                 left += 1
-                ans += 1
+                if number[i] == number[left] ==number[right] == 0:
+                    ans += number.count(0)
+                ans += number.count(number[right])
             elif temp < target:
                 left += 1
             else:
@@ -17,5 +19,5 @@ def solution(number):
     return ans
 
 # print(solution([-2, 3, 0, 2, -5]))
-print(solution([-3, -2, -1, 0, 1, 2, 3]))
+print(solution([-1, -1, -1, 2, 2]))
 # print(solution([-1, 1, -1, 1]))
