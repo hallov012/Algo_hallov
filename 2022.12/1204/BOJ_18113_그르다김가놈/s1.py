@@ -7,9 +7,9 @@ n, k, m = map(int, input().split())
 data = []
 for _ in range(n):
     l = int(input())
-    if l > 2*k:
+    if l >= 2*k:
         data.append(l - 2*k)
-    elif 2*k > l > k:
+    elif l > k:
         data.append(l-k)
 
 if not data:
