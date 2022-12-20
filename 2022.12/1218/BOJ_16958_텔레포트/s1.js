@@ -30,7 +30,9 @@ for (i = 0; i < n - 1; i++) {
 for (k = 0; k < n; k++) {
   for (i = 0; i < n; i++) {
     for (j = 0; j < n; j++) {
-      g[i][j] = Math.min(g[i][j], g[i][k] + g[k][j])
+      if (g[i][j] > g[i][k] + g[k][j]) {
+        g[i][j] = g[i][k] + g[k][j]
+      }
     }
   }
 }

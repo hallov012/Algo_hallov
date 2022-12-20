@@ -21,7 +21,8 @@ for i in range(n):
 for p in range(n):
     for i in range(n):
         for j in range(n):
-            g[i][j] = min(g[i][j], g[i][p] + g[p][j])
+            if g[i][j] > g[i][p] + g[p][j]:
+                g[i][j] = g[i][p] + g[p][j]
 
 m = int(input())
 for _ in range(m):
