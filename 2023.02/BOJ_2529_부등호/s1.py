@@ -1,27 +1,40 @@
 import sys
-from itertools import permutations
 sys.stdin = open('input.txt')
 
-def check(a, b, idx):
-    if orders[idx] == '<':
-        return a < b
+def dfs(temp, cnt):
+    global max_ans, min_ans
+    if cnt == n+1:
+        if min_ans == '':
+            min_ans = temp
+        else:
+            max_ans = temp
+        return
+    if cnt == 0:
+        for i in range(10):
+            visited[i] = True
+            dfs(str(i), 1)
+            visited[i] = False
     else:
-        return a > b
-    return False
-
-def dfs(cnt, )
+        if orders[cnt-1] == '>':
+            for i in range(int(temp[-1])):
+                if not visited[i]:
+                    visited[i] = True
+                    dfs(temp+str(i), cnt+1)
+                    visited[i] = False
+        else:
+            for i in range(int(temp[-1]), 10):
+                if not visited[i]:
+                    visited[i] = True
+                    dfs(temp+str(i), cnt+1)
+                    visited[i] = False
 
 n = int(input())
 orders = list(map(str, input().split()))
 nums = list(range(10))
-cases = list(permutations(nums, n+1))
-ans = []
-for case in cases:
-    for i in range(n):
-        if not check(case[i], case[i+1], i):
-            break
-    else:
-        ans.append(case)
-ans.sort()
-print(('').join(list(map(str, ans[-1]))))
-print(('').join(list(map(str, ans[0]))))
+visited = [0] * 10
+max_ans = ''
+min_ans = ''
+dfs('', 0)
+print(max_ans)
+print(min_ans)
+
