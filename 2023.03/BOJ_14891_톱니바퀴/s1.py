@@ -7,7 +7,6 @@ input = sys.stdin.readline
 wheels = [deque(input().rstrip()) for _ in range(4)]
 k = int(input())
 order = [list(map(int, input().split())) for _ in range(k)]
-# -2번과 2번은 붙어있다
 for idx, d in order:
     idx -= 1
     move = [(idx, d)]
