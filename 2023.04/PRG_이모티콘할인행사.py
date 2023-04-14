@@ -2,7 +2,7 @@ def solution(users, emoticons):
     answer = [0, 0]
     n, m = len(emoticons), len(users)
     visited = [0] * n
-
+    # 경우 체크
     def check():
         nonlocal answer
         cost = [0] * m
