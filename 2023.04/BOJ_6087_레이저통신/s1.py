@@ -25,6 +25,9 @@ while que:
         nx = x + dx[i]
         ny = y + dy[i]
         while True:
+            if (nx, ny) == end:
+                print(visited[x][y])
+                exit()
             if not (0 <= nx < h and 0 <= ny < w):
                 break
             if visited[nx][ny] == -1:
@@ -35,5 +38,3 @@ while que:
             que.append((nx, ny))
             nx += dx[i]
             ny += dy[i]
-
-print(visited[end[0]][end[1]]-1)
