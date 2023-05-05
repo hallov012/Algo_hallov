@@ -15,10 +15,5 @@ while True:
         break
     cases.append(case)
 
-for case in cases:
-    dic = {}
-    for char in case:
-        dic[char] = 0
-        for word in words:
-            if char in word:
+
 
