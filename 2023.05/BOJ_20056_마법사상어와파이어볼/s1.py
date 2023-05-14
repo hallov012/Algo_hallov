@@ -11,12 +11,14 @@ for i in range(m):
 dx = [-1, -1, 0, 1, 1, 1, 0, -1]
 dy = [0, 1, 1, 1, 0, -1, -1, -1]
 for _ in range(k):
+    # 새로운 위치 저장
     new_arr = defaultdict(list)
     for i in range(len(fire_lst)):
         x, y, w, s, d = fire_lst[i]
         nx = (x + s * dx[d]) % n
         ny = (y + s * dy[d]) % n
         new_arr[(nx, ny)].append(i)
+    # 결과 저장
     new_fire_lst = []
     for (x, y), lst in new_arr.items():
         if len(new_arr[(x, y)]) > 1:
@@ -27,7 +29,6 @@ for _ in range(k):
                 w_sum += fire_lst[idx][2]
                 s_sum += fire_lst[idx][3]
                 d_check[fire_lst[idx][4] % 2] += 1
-            # 모두 홀수
             if not w_sum // 5:
                 continue
             if not d_check[0] or not d_check[1]:
