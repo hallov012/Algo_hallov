@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 sys.stdin = open('input.txt')
 
 input = sys.stdin.readline
@@ -6,22 +7,22 @@ input = sys.stdin.readline
 T = int(input())
 for _ in range(T):
     str = input().rstrip()
-    stack = []
-    cursor = -1
+    left, right = deque(), deque()
     for char in str:
         if char == '<':
-            if cursor > 0:
-                cursor -= 1
+            if left:
+                right.appendleft(left.pop())
         elif char == '>':
-            if cursor < len(stack)-1:
-                cursor += 1
+            if right:
+                left.append(right.popleft())
         elif char == '-':
-            if stack and cursor != -1:
-                stack.pop(cursor)
-                cursor -= 1
+            if left:
+                left.pop()
         else:
-            cursor += 1
-            stack.insert(cursor, char)
+            left.append(char)
+    if right:
+        left += right
+    print(''.join(left))
 
-    print(''.join(stack))
+
 
