@@ -2,6 +2,7 @@ import sys
 from collections import defaultdict, deque
 sys.stdin = open('input.txt')
 
+# test
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
