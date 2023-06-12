@@ -19,11 +19,11 @@ for i in range(n):
     else:
         temp = 0
     if cnt >= m:
-        cost_temp = c * (temp+1)
-        ans = min(ans, cost_temp)
-        # 같은 가격의 고기의 묶음 다음으로 나온 고기의 금액이 더 싸지는지만 확인하면 되니까...?
-        if ans != sys.maxsize and ans > cost_temp:
+        if temp == 0:
+            ans = min(ans, c)
             break
+        else:
+            ans = min(ans, c * (temp+1))
 
 if ans == sys.maxsize:
     print(-1)
