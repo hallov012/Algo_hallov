@@ -1,3 +1,6 @@
+"""
+dijkstra 사용 => 시간 초과
+"""
 import sys, heapq
 sys.stdin = open('input.txt')
 
