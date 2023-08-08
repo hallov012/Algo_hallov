@@ -18,7 +18,6 @@ for i in range(m):
     num = nums[i]
     if num in stack:
         cnt[num] += 1
-        date[num] = i
     else:
         if len(stack) == n:
             min_cnt = 1000
