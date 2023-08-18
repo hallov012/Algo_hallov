@@ -1,0 +1,8 @@
+2
+3 800
+processor 3500_MHz 10 1
+processor 3500_MHz 10 1
+processor 3500_MHz 10 1
+2 400
+processor 3500_MHz 10 1
+processor 3500_MHz 10 1
