@@ -3,13 +3,28 @@ sys.stdin = open('input.txt')
 
 input = sys.stdin.readline
 
+def add(data):
+    global ans
+    ans += data
+    ans = str(int(ans) % 1000000007)
+
 n, q = map(int, input().split())
 a_lst = [''] + list(input().split())
-# 부모 노드 저장
-p = [0] * (n+1)
+g = [[] for _ in range(n+1)]
 for _ in range(n-1):
     a, b = map(int, input().split())
-    p[b] = a
+    g[a].append(b)
+    g[b].append(a)
+
+p = [-1] * (n+1)
+p[1] = 0
+stack = [1]
+while stack:
+    idx = stack.pop()
+    for adj in g[idx]:
+        if p[adj] == -1:
+            p[adj] = idx
+            stack.append(adj)
 
 for _ in range(q):
     x, y = map(int, input().split())
@@ -32,10 +47,10 @@ for _ in range(q):
     ans = ''
     for i in range(lv_x+1):
         j = target_x[i]
-        ans += a_lst[j]
+        add(a_lst[j])
     for k in range(lv_y+1, -1, -1):
         t = target_y[k]
-        ans += a_lst[t]
-    print(int(ans) % 1000000007)
+        add(a_lst[t])
+    print(ans)
 
 
