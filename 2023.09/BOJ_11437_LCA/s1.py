@@ -32,6 +32,9 @@ while stack:
 m = int(input())
 for _ in range(m):
     x, y = map(int, input().split())
+    if x == y:
+        print(x)
+        continue
     x_target, x_lv = find_target(x)
     y_target, y_lv = find_target(y)
     while x_target[x_lv] == y_target[y_lv]:
