@@ -7,10 +7,31 @@ visited = [[-1] * (b+1) for _ in range(a+1)]
 visited[0][0] = 0
 que = deque([(0, 0)])
 
+# 같으면 양쪽 채우고 끝
+if (a, b) == (c, d):
+    print(2)
+    exit()
+# 그냥 빈거면 끝
+if (c, d) == (0, 0):
+    print(0)
+    exit()
+
+if 1 in (a, b):
+    if b > a:
+        a, b = b, a
+        c, d = d, c
+    if c == 1:
+        print(2*(b-d))
+    else:
+        print(2*(b-d)+1)
+    exit()
+
+
 while que:
     x, y = que.popleft()
     if (x, y) == (c, d):
         break
+
     # A 물통을 채우기, 비우기
     if visited[a][y] == -1:
         visited[a][y] = visited[x][y] + 1
