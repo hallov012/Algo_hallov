@@ -26,7 +26,6 @@ def solution(picks, minerals):
         else:
             picks[2] -= 1
             ans += 25 * d + 5 * i + s
-
     return ans
 
 print(solution([1, 3, 2], ["diamond", "diamond", "diamond", "iron", "iron", "diamond", "iron", "stone"]))
