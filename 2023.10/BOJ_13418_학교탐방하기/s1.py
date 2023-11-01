@@ -11,7 +11,6 @@ def union(x, y):
     p[x] = y
 
 def solve(edges):
-    p = list(range(n+1))
     cnt = 0
     edges_cnt = 0
     for i in range(m + 1):
