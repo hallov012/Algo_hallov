@@ -1,4 +1,5 @@
 import sys
+
 sys.stdin = open('input.txt')
 
 """
@@ -8,4 +9,3 @@ sys.stdin = open('input.txt')
 
 S = input().rstrip()
 ans = 0
-
