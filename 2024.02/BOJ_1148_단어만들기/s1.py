@@ -13,6 +13,7 @@ for i in range(n):
 max_cnt = c + cnt + 1
 dp = [sys.maxsize] * (max_cnt)
 dp[0] = 0
+cnt = 0
 
 
 for a, b in data:
