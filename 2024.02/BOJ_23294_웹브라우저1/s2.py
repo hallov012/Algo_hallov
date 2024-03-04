@@ -51,10 +51,10 @@ for _ in range(q):
 
 print(now)
 if len(back):
-    print(*back)
+    print(' '.join(map(str, back)))
 else:
     print(-1)
 if len(front):
-    print(*front)
+    print(' '.join(map(str, front)))
 else:
     print(-1)
