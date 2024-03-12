@@ -1,23 +1,26 @@
 from collections import defaultdict, deque
 
-"""
-그래프의 수가 2일 때를 고려 못했음
-"""
-
 def solution(edges):
     answer = [0, 0, 0, 0]
-    cnt = defaultdict(int)
+    out_g = defaultdict(int)
+    in_g = defaultdict(int)
     g = defaultdict(list)
+    nodes = set()
     for a, b in edges:
-        cnt[a] += 1
+        out_g[a] += 1
+        in_g[b] += 1
+        nodes.add(a)
+        nodes.add(b)
         g[a].append(b)
 
-    cnt_lst = sorted(cnt.items(), key=lambda x:x[1], reverse=True)
-    node = cnt_lst[0][0]
-    answer[0] = node
+    for x in nodes:
+        # 나가는 것만 있으면 정점
+        if not in_g[x] and out_g[x] >= 2:
+            answer[0] = x
+            node = x
 
     m = 1000000
-    visited = [0] * (m+1)
+    visited = [0] * (m + 1)
     for x in g[node]:
         visited[x] = 1
         cnt = 1
