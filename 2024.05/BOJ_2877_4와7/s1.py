@@ -3,7 +3,6 @@ from collections import deque
 sys.stdin = open('input.txt')
 
 n = int(input())
-k = 1
 ans = deque()
 
 if n == 1:
@@ -16,7 +15,7 @@ else:
             ans.appendleft(4)
         else:
             ans.appendleft(7)
-        n /= 2
+            n -= 1
+        n = n//2
 
-    ans.popleft()
-
+    print(''.join(map(str, ans)))
