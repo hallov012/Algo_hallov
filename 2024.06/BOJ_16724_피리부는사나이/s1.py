@@ -13,6 +13,8 @@ def union(x, y):
         return
     p[x] = y
 
+input = sys.stdin.readline
+
 n, m = map(int, input().split())
 arr = [input() for _ in range(n)]
 direct = {
@@ -34,10 +36,7 @@ for i in range(n * m):
     if 0 <= next < n * m:
         union(i, next)
 
-ans = 0
-visited = [[0] * m for _ in range(n)]
-for i in range(n*m):
-    if not visited[find(p[i])]:
-        visited[find(p[i])] = 1
-        ans += 1
-print(ans)
+group = set()
+for i in range(n * m):
+    group.add(find(i))
+print(len(group))
