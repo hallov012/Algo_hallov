@@ -1,10 +1,22 @@
 import sys
 sys.stdin = open('input.txt')
 
-"""
-위치 p
-|ai - p| * bi들의 합이 최소가 되는 p를 구해야 한다
-"""
+input = sys.stdin.readline
+
 n = int(input())
-data = [tuple(map(int, input().split())) for _ in range(n)]
+data = []
 total = 0
+
+for _ in range(n):
+    x, a = map(int, input().split())
+    total += a
+    data.append((x, a))
+
+data.sort()
+cnt = 0
+for x, a in data:
+    cnt += a
+    if cnt >= total / 2:
+        print(x)
+        exit()
+
