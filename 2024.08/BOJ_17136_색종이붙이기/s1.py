@@ -17,6 +17,8 @@ def attach(x1, x2, y1, y2, val):
 
 def find(num, cnt):
     global ans
+    if cnt >= ans:
+        return
     if num == n*n:
         ans = min(ans, cnt)
         return
