@@ -12,14 +12,13 @@ while trucks:
     # 이미 있는 트럭이 빠져나갈 수 있는지 체크
     if que:
         a, b = que[0]
-        if (b + w) <= t:
-            que.popleft()
-            total -= a
-    x = trucks[0]
-    if total + x <= l and len(que) < w:
-        total += x
-        que.append((x, t))
+        if (b + w) > t:
+            t = b + w
+        que.popleft()
+        total -= a
+    while trucks and total + trucks[0] <= l and len(que) < w:
+        total += trucks[0]
+        que.append((trucks[0], t))
         trucks.popleft()
-    t += 1
-
+        t += 1
 print(t + w - 1)
