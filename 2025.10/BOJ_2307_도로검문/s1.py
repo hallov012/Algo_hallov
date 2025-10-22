@@ -15,7 +15,7 @@ def dijkstra(s, e):
             continue
         for next, c in g[now]:
             # 제거할 구간은 pass
-            if s == now and e == next or s == next or e == now:
+            if (now, next) in [(s, e), (e, s)]:
                 continue
             if d + c < dist[next]:
                 dist[next] = d + c
@@ -36,12 +36,15 @@ for _ in range(m):
 pre = [0] * (n+1)
 sort_dist = dijkstra(0, 0)
 
+if sort_dist == sys.maxsize:
+    print(-1)
+    exit()
+
 ans = -1
 e = n
 
 while pre[e] != 0:
     s = pre[e]
-    print(s, e)
     tmp = dijkstra(s, e)
     if tmp != sys.maxsize:
         ans = max(ans, tmp-sort_dist)
