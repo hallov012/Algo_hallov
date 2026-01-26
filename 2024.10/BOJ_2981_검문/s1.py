@@ -8,11 +8,11 @@ a, b의 최대 공약수는 b, r의 최대 공약수와 같음
 gcb(a, b) = gcd(b, r)
 
 n0 = s0*m + r
-n1 = s1*m + r
+n1 = input.txt*m + r
 n2 = s2*m + r
 ----------------
-n1 - n0 = m(s1 - s0) => s1 - s0은 n1 - n0의 약수
-n2 - n1 = m(s2 - s1) => s2 - s1은 n2 - n1의 약수
+n1 - n0 = m(input.txt - s0) => input.txt - s0은 n1 - n0의 약수
+n2 - n1 = m(s2 - input.txt) => s2 - s1은 n2 - n1의 약수
 m은 공통으로 들어가는 부분이니, s'i - s'i-1 들의 최대 공약수를 찾는다
 """
 n = int(input())
