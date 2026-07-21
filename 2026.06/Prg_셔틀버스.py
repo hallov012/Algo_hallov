@@ -23,7 +23,7 @@ def solution(n, t, m, timetable):
                 answer = crew[idx-1] - 1
         b_time += t
     return f"{answer // 60:02d}:{answer % 60:02d}"
-ㅠ
+
 input_lst = [
     [1, 1, 5, ["08:00", "08:01", "08:02", "08:03"]],
     [2, 10, 2, ["09:10", "09:09", "08:00"]]
