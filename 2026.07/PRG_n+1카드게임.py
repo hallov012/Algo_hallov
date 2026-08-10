@@ -1,6 +1,5 @@
 from collections import deque
 
-
 def solution(coin, cards):
     n = len(cards)
     m = n // 3
